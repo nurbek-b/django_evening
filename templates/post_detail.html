@@ -8,5 +8,7 @@
         <p>{{ post.body }}</p><p>{{ post.date }}</p>
         <img src="{{ post.photo.url}}" style="max-width: 300px;">
     </div>
+    <a href="{% url 'post_edit' post.pk %}">+ Edit Post</a>
+    <p><a href="{% url 'post_delete' post.pk %}">+ Delete Post</a></p>
     </center>
 {% endblock content %}

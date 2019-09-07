@@ -1,34 +1,34 @@
-{% extends 'base.html' %}
-<header>
-    <center><h1>MAKERS BLOG</h1></center>
-</header>
 
-{% block content %}
-    {% for post in posts %}
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
-<div class="container">
-  <div class="well">
-      <div class="media" style="width: 100%;">
-      	<a class="pull-left" href="#">
-    		<img class="media-object" src="">
-                <img src="{{ post.photo.url}}" style="max-width: 300px;">
-  		</a>
-  		<div class="media-body">
-            <h4 class="media-heading"><a href="{% url 'post_detail' post.pk %}">Title: {{ post.title }}</a></h4>
-          <p class="text-right">Author: {{ post.author }}</p>
-          <p>Text: {{ post.body }}</p>
-          <ul class="list-inline list-unstyled">
-  			<li><span><i class="glyphicon glyphicon-calendar"></i>{{ post.date }}</span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
 
-			</ul>
-       </div>
+<!-- details card section starts from here -->
+{% extends 'base.html' %}
+{% block content %}
+<section class="details-card">
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+
+            <div class="col-md-4">
+                <div class="card-content">
+                    <div class="card-img">
+                        <img src="{{ post.photo.url}}" style="max-width: 200px;">
+                        <span><h4>{{ post.author }}</h4></span>
+                    </div>
+                    <div class="card-desc">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.body }}</p>
+                        <button><a href="{% url 'post_detail' post.pk %}">READ</a></button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
     </div>
-  </div>
-   {% endfor %}
+</section>
 {% endblock content %}
+<!-- details card section starts from here -->

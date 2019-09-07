@@ -1,14 +1,18 @@
+
 <html>
 <head>
-<title>Django blog</title>
+    <title>Makers Bootcamp Blog</title>
 </head>
-<body>
-<header>
-<h1><a href="{% url 'post_list' %}">MAKERS BLOG</a></h1>
-</header>
-<div>
+    <header>
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <div class="nav-left">
+                <h3><a href="{% url 'post_list' %}">Makers Bootcamp Blog</a></h3>
+            </div>
+            <div class="nav-right">
+                <a href="{% url 'post_new' %}">+ New Post</a>
+            </div>
+        </nav>
+    </header>
 {% block content %}
 {% endblock content %}
-</div>
-</body>
 </html>
